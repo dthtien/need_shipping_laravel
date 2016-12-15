@@ -18,15 +18,15 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('sdt');
-            $table->string('diachi');
-            $table->string('loai');
+            $table->string('sdt')->nullable();
+            $table->string('diachi')->nullable();
+            $table->string('loai')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
         Schema::table('users',function($table){
-            $table->double('kinhdo');
-            $table->double('vido');
+            $table->double('kinhdo')->nullable();
+            $table->double('vido')->nullable();
         });
     }
 

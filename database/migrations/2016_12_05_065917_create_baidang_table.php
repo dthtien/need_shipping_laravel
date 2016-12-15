@@ -15,15 +15,15 @@ class CreateBaidangTable extends Migration
     {
         Schema::create('baidang', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('diachishop');
-            $table->string('sdtshop');
-            $table->string('diachinnhan');
-            $table->string('sdtnnhan');
-            $table->string('ghichu');
-            $table->string('tenmathang');
-            $table->integer('cannang');
-            $table->integer('tienung');
-            $table->integer('phiship');
+            $table->string('diachishop')->nullable();
+            $table->string('sdtshop')->nullable();
+            $table->string('diachinnhan')->nullable();
+            $table->string('sdtnnhan')->nullable();
+            $table->string('ghichu')->nullable();
+            $table->string('tenmathang')->nullable();
+            $table->integer('cannang')->nullable();
+            $table->integer('tienung')->nullable();
+            $table->integer('phiship')->nullable();
             $table->integer('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

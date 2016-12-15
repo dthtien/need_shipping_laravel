@@ -15,14 +15,14 @@ class Add extends Migration
     {
         //
         Schema::table('users',function($table){
-            $table->double('kinhdo');
-            $table->double('vido');
+            $table->double('kinhdo')->nullable();
+            $table->double('vido')->nullable();
         });
         Schema::table('baidang',function($table){
-            $table->double('kinhdoshop');
-            $table->double('vidoshop');
-            $table->double('kinhdonnhan');
-            $table->double('vidoshopnnhan');
+            $table->double('kinhdoshop')->nullable();
+            $table->double('vidoshop')->nullable();
+            $table->double('kinhdonnhan')->nullable();
+            $table->double('vidoshopnnhan')->nullable();
         });
     }
 

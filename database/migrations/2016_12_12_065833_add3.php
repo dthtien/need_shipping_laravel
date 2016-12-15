@@ -14,7 +14,7 @@ class Add3 extends Migration
     public function up()
     {
         Schema::table('users',function($table){
-            $table->boolean('level');
+            $table->boolean('level')->nullable();
         });
     }
 

@@ -15,7 +15,7 @@ class Add2 extends Migration
     {
         //
         Schema::table('baidang',function($table){
-            $table->double('khoangcach');
+            $table->double('khoangcach')->nullable();
         });
     }
 

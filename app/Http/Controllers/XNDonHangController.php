@@ -31,7 +31,7 @@ class XNDonHangController extends Controller
 					return redirect()->route('user.donhang')->with(['tb'=>'Nhận đơn hàng thành công!']);
 				}
 				else {
-					return redirect()->route('user.donhang')->with(['loi'=>'Đơn hàng đã có người nhận!']);
+					return redirect()->route('user.donhang')->with(['loi'=>'Đơn hàng đã có người nhận Hoặc đã giao thành công']);
 				}
 			}
 			else
@@ -70,7 +70,7 @@ class XNDonHangController extends Controller
 	public function donhangdadang()
 	{
 		if(Auth::check()){ 
-			if(Auth::user()->loai=='Shop'){ 
+			if(Auth::user()->loai!='Shipper'){ 
 				$data=User::findOrFail(Auth::user()->id)->baidang()->orderBy('updated_at', 'desc')->paginate(2);;
 				return view('ns.donhangdadang',compact('data'));
 			}

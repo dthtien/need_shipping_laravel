@@ -14,7 +14,7 @@ class Add4 extends Migration
     public function up()
     {
         Schema::table('xndonhang',function($table){
-            $table->boolean('is_su'); 
+            $table->boolean('is_su')->nullable(); 
         });
     }
 

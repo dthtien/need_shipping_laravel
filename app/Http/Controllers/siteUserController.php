@@ -17,6 +17,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Auth;
+use App\Helpers;
 
 class siteUserController extends BaseController
 {
@@ -29,34 +30,15 @@ class siteUserController extends BaseController
 	{
 		return view('ns.dangky');
 	}
+
+
+	//Xử lý đăng ký
 	public function xldangky(UserRequest $request)
 	{
 		 // Lấy địa chỉ chính xác
-	 function get_infor_from_address($address) {
-	    $prepAddr = str_replace(' ', '+', stripUnicode($address));
-	    $geocode = file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
-	    $output = json_decode($geocode);
-	    return $output;
-	  }
-
-	  // Loại bỏ dấu tiếng Việt để cho kết quả chính xác hơn
-	  function stripUnicode($str){
-	    if (!$str) return false;
-	    $unicode = array(
-	      'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ|Á|À|Ả|Ã|Ạ|Ă|Ắ|Ặ|Ằ|Ẳ|Ẵ|Â|Ấ|Ầ|Ẩ|Ẫ|Ậ',
-	      'd'=>'đ|Đ',
-	      'e'=>'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ|É|È|Ẻ|Ẽ|Ẹ|Ê|Ế|Ề|Ể|Ễ|Ệ',
-	      'i'=>'í|ì|ỉ|ĩ|ị|Í|Ì|Ỉ|Ĩ|Ị',
-	      'o'=>'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ|Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
-	      'u'=>'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự|Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
-	      'y'=>'ý|ỳ|ỷ|ỹ|ỵ|Ý|Ỳ|Ỷ|Ỹ|Ỵ'
-	    );
-	    foreach($unicode as $nonUnicode=>$uni) $str = preg_replace("/($uni)/i",$nonUnicode,$str);
-	    return $str;
-	   }
 		$user= new User;
-		$adr=get_infor_from_address($request->Address);
-		if($adr)
+		$adr=Helper::get_infor_from_address($request->Address);
+		if($adr->status=='OK')
 		{
 		$user->diachi= $adr->results[0]->formatted_address;
 		$user->kinhdo=$adr->results[0]->geometry->location->lng;//Lấy kinh độ
@@ -135,35 +117,23 @@ class siteUserController extends BaseController
 	{
 	if(Auth::check())
 	{ 
-		function get_infor_from_address($address) {
-	    $prepAddr = str_replace(' ', '+', stripUnicode($address));
-	    $geocode = file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
-	    $output = json_decode($geocode);
-	    return $output;
-	  	}
-
-	  // Loại bỏ dấu tiếng Việt để cho kết quả chính xác hơn
-	  function stripUnicode($str){
-	    if (!$str) return false;
-	    $unicode = array(
-	      'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ|Á|À|Ả|Ã|Ạ|Ă|Ắ|Ặ|Ằ|Ẳ|Ẵ|Â|Ấ|Ầ|Ẩ|Ẫ|Ậ',
-	      'd'=>'đ|Đ',
-	      'e'=>'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ|É|È|Ẻ|Ẽ|Ẹ|Ê|Ế|Ề|Ể|Ễ|Ệ',
-	      'i'=>'í|ì|ỉ|ĩ|ị|Í|Ì|Ỉ|Ĩ|Ị',
-	      'o'=>'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ|Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
-	      'u'=>'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự|Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
-	      'y'=>'ý|ỳ|ỷ|ỹ|ỵ|Ý|Ỳ|Ỷ|Ỹ|Ỵ'
-	    );
-	    foreach($unicode as $nonUnicode=>$uni) $str = preg_replace("/($uni)/i",$nonUnicode,$str);
-	    return $str;
-	   }
 		$data = User::findOrFail(Auth::user()->id);
+		$adr=Helpers::get_infor_from_address($request->Address);
 		$data->name=$request->Name;
 		$data->sdt=$request->Phone;
 		$data->loai=$request->TypeAcc;
-		$data->diachi=get_infor_from_address($request->Address)->results[0]->formatted_address;
-		$data->kinhdo=get_infor_from_address($request->Address)->results[0]->geometry->location->lng;//Lấy kinh độ
-		$data->vido=get_infor_from_address($request->Address)->results[0]->geometry->location->lat;//Lấy vi độ
+		if($adr->status=='OK')
+		{
+		$data->diachi=$adr->results[0]->formatted_address;
+		$data->kinhdo=$adr->results[0]->geometry->location->lng;//Lấy kinh độ
+		$data->vido=$adr->results[0]->geometry->location->lat;//Lấy vi độ
+		}
+		else
+		{
+			$data->diachi= $request->Address;
+			$data->kinhdo=0;
+			$data->vido=0;
+		}
 		$data->save();
 		return redirect()->route('user.thongtin')->with(['tb'=>'Cập nhật thông tin thành công']);
 	}
@@ -189,7 +159,7 @@ class siteUserController extends BaseController
 			return redirect()->route('user.thongtin')->with(['tb'=>'Cập nhật thông tin thành công']);
 		}
 		else 
-			return redirect()->route('user.thongtin')->with(['loi'=>'Sai password. Không đổi được mật khẩu']);
+			return redirect()->route('user.thongtin')->with(['loi'=>'Sai mật khẩu cũ. Không đổi được mật khẩu']);
 	}
 	else
       {

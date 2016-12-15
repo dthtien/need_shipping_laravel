@@ -141,14 +141,11 @@
 								<td>
 									<p style="cursor: pointer; text-decoration: none; color:#F24738; font-size: 18px; font-weight: bold;" class="" data-toggle="modal" data-target="#modal{{ $row1['id'] }}">{{ $row1["name"]}}</p>
 									<p style="font-size: 13px"><i>Ngày: {{ $row["updated_at"] }}</i></p>
-									@php
-									$x1=Auth::user()->kinhdo;
-									$y1=Auth::user()->vido;
-									$x = abs($row["kinhdoshop"] - $x1);
-									$y= abs($row["vidoshop"] - $y1);
-									$kc=ceil(sqrt($x*$x+$y*$y)*111.18);
-									echo "<i class='fa fa-map-marker' style='color:#F24738'> ".$kc."  km</i>";
-									@endphp
+									<?php
+									$kc=App\Helpers::calculated_distance(Auth::user()->kinhdo,Auth::user()->vido,$row["kinhdoshop"],$row["vidoshop"],$earthRadius = 6371);
+									if($kc>1000) $kc=0;
+									echo "<i class='fa fa-map-marker' style='color:#F24738; cursor:pointer;' title='Khoảng cách từ bạn đến địa chỉ nhận hàng'> ".$kc."km</i>";
+									?>
 								</td>
 							</tr>
 							<tr>
@@ -195,7 +192,7 @@
 							</tr>
 							<tr>
 								<th>
-								<form method="post" action="{!! route('posthoanthanhdonhang') !!}" >
+								<form method="post" action="{!! route('posthoanthanhdonhang') !!}" onSubmit="return confirm('Bạn đã hoàn thành đơn hàng');">
 								<input name="_token" type="hidden" value="{{ csrf_token() }}">
 								<input type="hidden" name="id" value="{{ $id }}">
 								<button style="cursor: pointer; text-decoration: none; color:lightgreen; font-size: 18px; font-weight: bold; border: none; background-color:#fff;"><i class="fa fa-check-square-o"> Hoàn Thành </i></button>
