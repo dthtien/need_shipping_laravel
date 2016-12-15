@@ -26,11 +26,11 @@
     <!-- {{ Html::image('admin/images/logo1.png') }}; -->
     <!-- <link rel="shortcut icon" href="{{{ asset('admin/images/logo1.png') }}}"> -->
     <!-- Css -->
-     {{ Html::style('ns/css/bootstrap.min.css') }}
-     {{ Html::style('ns/css/reset.css') }}   
-     {{ Html::style('ns/css/home.css') }}
-     {{ Html::style('ns/css/login.css') }}
-     {{ Html::style('ns/css/font-awesome.min.css') }}
+    {{ Html::style('ns/css/bootstrap.min.css') }}
+    {{ Html::style('ns/css/reset.css') }}   
+    {{ Html::style('ns/css/home.css') }}
+    {{ Html::style('ns/css/login.css') }}
+    {{ Html::style('ns/css/font-awesome.min.css') }}
     <style>
       .s5h-header .dropdown-menu {
         left: auto;
@@ -55,36 +55,37 @@
             <span class="s5h-menuicon"><i class="fa fa-bars"></i></span>
             <ul class="s5h-menu">  <!--F24738-->
                 <li><a class="active" href="{{ url('index') }}" title="TRANG CHỦ">TRANG CHỦ</a> </li>
-                <li>
-                    <a href="{{ url('Taodonhang') }}" style="color: #F24738; font-size: 18px;" title="Tạo Đơn Hàng">
-                      <i class="fa fa-list w3-margin-right"></i>
-                      TẠO ĐƠN HÀNG 
-                  </a> 
-                </li>
+                <li><a href="{{ url('chinhsach') }}">CHÍNH SÁCH</a></li>
+                <li><a href="#contact">LIÊN HỆ</a></li>
+                
+                @if(Auth::check())
+                @if(Auth::user()->loai=='Shipper')
                 <li>
                     <a href="{{ url('donhang') }}" style="color: #F24738; font-size: 18px;" title="Giao Hàng Ngay">
                       <i class="fa fa-truck w3-margin-right"></i>
                       GIAO HÀNG NGAY 
                   </a> 
               </li>
-              @if(Auth::check())
-              <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="{{ url('thongtin') }}">THÔNG TIN</a></li>
-                 @if(Auth::user()->loai=='Shipper')
-                    <li><a href="{{ url('don-hang-da-nhan') }}">ĐƠN HÀNG ĐÃ NHẬN</a></li>
-                    @else
-                    <li><a href="{{ url('don-hang-da-dang') }}">ĐƠN HÀNG ĐÃ ĐĂNG</a></li>
-                 @endif
-                    <li><a href="{{ url('chinhsach') }}">CHÍNH SÁCH</a></li>
-                    <li><a href="#contact">LIÊN HỆ</a></li>
-                    <li><a href="{{ url('dangxuat') }}">ĐĂNG XUẤT</a></li>
-                </ul>
-            </li>
-            @endif
+              <li><a href="{{ url('don-hang-da-nhan') }}"><i class="fa fa-bookmark-o w3-margin-right"></i> ĐƠN HÀNG ĐÃ NHẬN</a></li>
+              @else
+              <li>
+                <a href="{{ url('Taodonhang') }}" style="color: #F24738; font-size: 18px;" title="Tạo Đơn Hàng">
+                  <i class="fa fa-list w3-margin-right"></i>
+                  TẠO ĐƠN HÀNG 
+              </a> 
+          </li>
+      <li><a href="{{ url('don-hang-da-dang') }}"> <i class="fa fa-bookmark-o w3-margin-right"></i> ĐƠN HÀNG ĐÃ ĐĂNG</a></li>
+      @endif
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-address-card-o w3-margin-left"></i>{{ Auth::user()->name }} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url('thongtin') }}">THÔNG TIN</a></li>
+            <li><a href="{{ url('dangxuat') }}">ĐĂNG XUẤT</a></li>
         </ul>
-    </div>
+    </li>
+    @endif
+</ul>
+</div>
 </div>
 <!-- main -->
 @yield('content')

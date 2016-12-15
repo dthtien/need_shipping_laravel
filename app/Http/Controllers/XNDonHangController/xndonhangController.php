@@ -21,9 +21,9 @@ class xndonhangController extends Controller
         if(Auth::check()){ 
             if(Auth::user()->level==1)
             {
-        $xndonhang = xndonhang::paginate(25);
-        return view('xndonhang.index', compact('xndonhang'));
-        } else
+                $xndonhang = xndonhang::paginate(25);
+                return view('xndonhang.index', compact('xndonhang'));
+            } else
             {
                 return redirect('home');
             }
@@ -44,8 +44,8 @@ class xndonhangController extends Controller
         if(Auth::check()){ 
             if(Auth::user()->level==1)
             {
-        return view('xndonhang.create');
-        } else
+                return view('xndonhang.create');
+            } else
             {
                 return redirect('home');
             }
@@ -65,17 +65,17 @@ class xndonhangController extends Controller
      */
     public function store(Request $request)
     {
-                if(Auth::check()){ 
+        if(Auth::check()){ 
             if(Auth::user()->level==1)
             {
-        $requestData = $request->all();
-        
-        xndonhang::create($requestData);
+                $requestData = $request->all();
+                
+                xndonhang::create($requestData);
 
-        Session::flash('flash_message', 'xndonhang added!');
+                Session::flash('flash_message', 'xndonhang added!');
 
-        return redirect('admin/xndonhang');
-        } else
+                return redirect('admin/xndonhang');
+            } else
             {
                 return redirect('home');
             }
@@ -95,22 +95,22 @@ class xndonhangController extends Controller
      */
     public function show($id)
     {
-         if(Auth::check()){ 
-            if(Auth::user()->level==1)
-            {
-        $xndonhang = xndonhang::findOrFail($id);
-
-        return view('xndonhang.show', compact('xndonhang'));
-        } else
-            {
-                return redirect('home');
-            }
-        }
-        else
+       if(Auth::check()){ 
+        if(Auth::user()->level==1)
         {
-            return redirect('login');
+            $xndonhang = xndonhang::findOrFail($id);
+
+            return view('xndonhang.show', compact('xndonhang'));
+        } else
+        {
+            return redirect('home');
         }
     }
+    else
+    {
+        return redirect('login');
+    }
+}
 
     /**
      * Show the form for editing the specified resource.
@@ -125,10 +125,10 @@ class xndonhangController extends Controller
             if(Auth::user()->level==1)
             {
 
-        $xndonhang = xndonhang::findOrFail($id);
+                $xndonhang = xndonhang::findOrFail($id);
 
-        return view('xndonhang.edit', compact('xndonhang'));
-         } else
+                return view('xndonhang.edit', compact('xndonhang'));
+            } else
             {
                 return redirect('home');
             }
@@ -149,27 +149,27 @@ class xndonhangController extends Controller
      */
     public function update($id, Request $request)
     {
-         if(Auth::check()){ 
-            if(Auth::user()->level==1)
-            {
-        $requestData = $request->all();
-        
-        $xndonhang = xndonhang::findOrFail($id);
-        $xndonhang->update($requestData);
-
-        Session::flash('flash_message', 'xndonhang updated!');
-
-        return redirect('admin/xndonhang');
-        } else
-            {
-                return redirect('home');
-            }
-        }
-        else
+       if(Auth::check()){ 
+        if(Auth::user()->level==1)
         {
-            return redirect('login');
+            $requestData = $request->all();
+            
+            $xndonhang = xndonhang::findOrFail($id);
+            $xndonhang->update($requestData);
+
+            Session::flash('flash_message', 'xndonhang updated!');
+
+            return redirect('admin/xndonhang');
+        } else
+        {
+            return redirect('home');
         }
     }
+    else
+    {
+        return redirect('login');
+    }
+}
 
     /**
      * Remove the specified resource from storage.
@@ -180,22 +180,22 @@ class xndonhangController extends Controller
      */
     public function destroy($id)
     {
-         if(Auth::check()){ 
-            if(Auth::user()->level==1)
-            {
-        xndonhang::destroy($id);
-
-        Session::flash('flash_message', 'xndonhang deleted!');
-
-        return redirect('admin/xndonhang');
-        } else
-            {
-                return redirect('home');
-            }
-        }
-        else
+       if(Auth::check()){ 
+        if(Auth::user()->level==1)
         {
-            return redirect('login');
+            xndonhang::destroy($id);
+
+            Session::flash('flash_message', 'xndonhang deleted!');
+
+            return redirect('admin/xndonhang');
+        } else
+        {
+            return redirect('home');
         }
     }
+    else
+    {
+        return redirect('login');
+    }
+}
 }

@@ -81,6 +81,7 @@
 					$data_xn=App\XNDonHang::findOrFail($id)->baidang()->get()->toArray();
 					 ?>
 				@foreach ($data_xn as $row)
+				
 				<div class="text-background feed" style=" margin-top: 25px; margin-bottom: 10px;">
 					<h3>
 						@php
