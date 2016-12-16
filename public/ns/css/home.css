@@ -355,12 +355,18 @@ a, a:hover, a:focus, a:active {
 }
 
 .s5h-ftshare {
+    text-align: center;
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    padding-top: 20px;
     height: 70px;
     line-height: 70px;
     background: #F24738;;
+
 }
 
     .s5h-ftshare ul {
+        margin: -22px;
         list-style: none;
         text-align: center;
     }

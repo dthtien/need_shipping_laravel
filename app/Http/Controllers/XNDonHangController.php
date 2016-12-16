@@ -52,7 +52,7 @@ class XNDonHangController extends Controller
 		if(Auth::check()){  
 			if(Auth::user()->loai=='Shipper'){
 				$num= new XNDonHang;
-				$data= $num->where('ship_id','=',Auth::user()->id)->where('is_su','=',0)->orderBy('updated_at', 'desc')->paginate(2);
+				$data= $num->where('ship_id','=',Auth::user()->id)->orderBy('updated_at', 'desc')->paginate(2);
 				return view('ns.donhangdanhan',compact('data'));
 			}
 			else 

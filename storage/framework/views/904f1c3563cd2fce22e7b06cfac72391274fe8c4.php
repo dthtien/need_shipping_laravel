@@ -1,5 +1,4 @@
-@extends('ns.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <style type="text/css">
 	.user-info th {
 		width: 35%;
@@ -71,13 +70,14 @@
 					<h3 style="background-color: #F24738; border: none; text-align: center; color: white; padding: 10px; font-size: 12px;" role="tab" id="ui-id-1" >
 						Danh sách đơn hàng đã nhận.
 					</h3>
-					@if(Session::has('tb'))
+					<?php if(Session::has('tb')): ?>
                     <div class="alert alert-success">
                     <span class="closebtn">&times;</span>  
-                        {!! Session::get('tb') !!}
+                        <?php echo Session::get('tb'); ?>
+
                     </div>
                     <?php Session::forget('tb') ?>
-                  @endif
+                  <?php endif; ?>
 					<?php
 					foreach ($data as $r) {
 					$id = $r["id"]; 
@@ -85,49 +85,49 @@
 					// $data_xn=BaiDang::findOrFail($id)->xndonhang()->get()->toArray();
 					$data_xn=App\XNDonHang::findOrFail($id)->baidang()->get()->toArray();
 					 ?>
-				@foreach ($data_xn as $row)
+				<?php $__currentLoopData = $data_xn; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 				
 				<div class="text-background feed" style=" margin-top: 25px; margin-bottom: 10px;">
 					<h3>
-						@php
+						<?php 
 						$data1=App\BaiDang::find($row["id"])->user()->get()->toArray();
-						@endphp
+						 ?>
 						<!-- Lấy thông tin người đăng-->
-						@foreach($data1 as $key => $row1)
+						<?php $__currentLoopData = $data1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $row1): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 						<!-- Modal -->
-						<div id="modal{{ $row1['id'] }}" class="modal fade" role="dialog">
+						<div id="modal<?php echo e($row1['id']); ?>" class="modal fade" role="dialog">
 							<div class="modal-dialog">
 								<!-- Modal content-->
 								<div class="modal-content">
 									<div class="modal-header" style="background-color:#F24738; color: white;">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 style=" font-size: 20px;">{{ $row1["name"] }}</h4>
+										<h4 style=" font-size: 20px;"><?php echo e($row1["name"]); ?></h4>
 									</div>
 									<div class="modal-body" style="font-size: 18px; color: #4e4d55;text-align: left;">
 										<table class="table table-condensed user-info">
 											<tbody><tr>
 												<th>Email: </th>
-												<td>{{ $row1["email"] }}</td>
+												<td><?php echo e($row1["email"]); ?></td>
 											</tr>
 											<tr>
 												<th>Số điện thoại </th>
-												<td>{{ $row1["sdt"] }}</td>
+												<td><?php echo e($row1["sdt"]); ?></td>
 											</tr>
 											<tr>
 												<th>Địa chỉ:</th>
-												<td>{{ $row1["diachi"] }}</td>
+												<td><?php echo e($row1["diachi"]); ?></td>
 											</tr>
 											<tr>
 												<th>Nghề</th>
-												<td>{{ $row1["loai"] }}</td>
+												<td><?php echo e($row1["loai"]); ?></td>
 											</tr>
 											<tr>
 												<th>Số bài đăng:</th>
 												<td>
-													@php
+													<?php 
 													$data2=App\User::find($row1["id"])->baidang()->count();
 													print_r($data2);
-													@endphp
+													 ?>
 													<!--Tính số bài đăng mà shop đã đăng-->
 												</td>
 											</tr>
@@ -138,15 +138,15 @@
 						</div>
 						</div>
 						<!-- endmodal -->
-						@endforeach
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 					</h3>
 					<br>
 					<table class="table table-condensed user-info">
 						<tbody>
 							<tr>
 								<td>
-									<p style="cursor: pointer; text-decoration: none; color:#F24738; font-size: 18px; font-weight: bold;" class="" data-toggle="modal" data-target="#modal{{ $row1['id'] }}">{{ $row1["name"]}}</p>
-									<p style="font-size: 13px"><i>Ngày: {{ $row["updated_at"] }}</i></p>
+									<p style="cursor: pointer; text-decoration: none; color:#F24738; font-size: 18px; font-weight: bold;" class="" data-toggle="modal" data-target="#modal<?php echo e($row1['id']); ?>"><?php echo e($row1["name"]); ?></p>
+									<p style="font-size: 13px"><i>Ngày: <?php echo e($row["updated_at"]); ?></i></p>
 									<?php
 									$kc=App\Helpers::calculated_distance(Auth::user()->kinhdo,Auth::user()->vido,$row["kinhdoshop"],$row["vidoshop"],$earthRadius = 6371);
 									if($kc>1000) $kc=0;
@@ -156,73 +156,74 @@
 							</tr>
 							<tr>
 								<th> Địa chỉ lấy hàng </th>
-								<td> {{ $row["diachishop"] }} </td>
+								<td> <?php echo e($row["diachishop"]); ?> </td>
 							</tr>
 							<tr>
 								<th> Số điện thoại lấy hàng </th>
-								<td> {{ $row["sdtshop"] }} </td>
+								<td> <?php echo e($row["sdtshop"]); ?> </td>
 							</tr>
 							<tr>
 								<th> Địa chỉ nhận hàng </th>
-								<td> {{ $row["diachinnhan"] }} </td>
+								<td> <?php echo e($row["diachinnhan"]); ?> </td>
 							</tr>
 							<tr >
 								<th>Số điện thoại nhận hàng</th>
-								<td> {{ $row["sdtnnhan"] }} </td>
+								<td> <?php echo e($row["sdtnnhan"]); ?> </td>
 							</tr>
 							<tr>
 								<th>Tên người nhận:</th>
-								<td> {{ $row["ghichu"] }} </td>
+								<td> <?php echo e($row["ghichu"]); ?> </td>
 							</tr>
 							<tr>
 								<th> Tên mặt hàng </th>
-								<td> {{ $row["tenmathang"] }} </td>
+								<td> <?php echo e($row["tenmathang"]); ?> </td>
 							</tr>
 							<tr>
 								<th>Khối lượng:</th>
-								<td> {{ $row["cannang"] }} </td>
+								<td> <?php echo e($row["cannang"]); ?> </td>
 							</tr>
 							<tr>
 								<th>Tiền ứng:</th>
-								<td> {{ $row["tienung"] }} </td>
+								<td> <?php echo e($row["tienung"]); ?> </td>
 							</tr>
 							<tr>
 								<th>Phí ship:</th>
-								<td> {{ $row["phiship"] }} </td>
+								<td> <?php echo e($row["phiship"]); ?> </td>
 							</tr>
 							<tr>
 								<th>Khoảng cách(Từ shop đến chỗ nhận):</th>
 								<td>
-									{{ $row["khoangcach"] }} km
+									<?php echo e($row["khoangcach"]); ?> km
 								</td>
 							</tr>
 							<tr>
 								<th>
-								@if($is_su==0)
-								<form method="post" class="frm" action="{!! route('posthoanthanhdonhang') !!}" onSubmit="return confirm('Bạn đã hoàn thành đơn hàng');">
-								<input name="_token" type="hidden" value="{{ csrf_token() }}">
-								<input type="hidden" name="id" value="{{ $id }}">
+								<?php if($is_su==0): ?>
+								<form method="post" class="frm" action="<?php echo route('posthoanthanhdonhang'); ?>" onSubmit="return confirm('Bạn đã hoàn thành đơn hàng');">
+								<input name="_token" type="hidden" value="<?php echo e(csrf_token()); ?>">
+								<input type="hidden" name="id" value="<?php echo e($id); ?>">
 								<button style="cursor: pointer; text-decoration: none; color:lightgreen; font-size: 18px; font-weight: bold; border: none; background-color:#fff;"><i class="fa fa-check-square-o"> Hoàn Thành </i></button>
 								</form>
-								<form method="post" class="frm" action="{!! route('postxoadonhang') !!}" onSubmit="return confirm('Bạn có muốn xóa đơn hàng');">
-								<input name="_token" type="hidden" value="{{ csrf_token() }}">
-								<input type="hidden" name="id" value="{{ $id }}">
+								<form method="post" class="frm" action="<?php echo route('postxoadonhang'); ?>" onSubmit="return confirm('Bạn có muốn xóa đơn hàng');">
+								<input name="_token" type="hidden" value="<?php echo e(csrf_token()); ?>">
+								<input type="hidden" name="id" value="<?php echo e($id); ?>">
 								<button  style="cursor: pointer; text-decoration: none; color:red; font-size: 18px; font-weight: bold; border: none; background-color:#fff;"><i class="fa fa-times"> Xóa </i></button>
 								</form>
-								@else 
+								<?php else: ?> 
 								<p style="color: green;"> Đã giao hàng</p>
-								@endif
+								<?php endif; ?>
 								</th>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-				@endforeach	
+				<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>	
 				<?php
 				} 
 				 ?>
 				<!-- <div class="center"> -->
-				{{ $data->links() }}
+				<?php echo e($data->links()); ?>
+
 				<!-- </div>			 -->
 			</div>
 		</div>
@@ -242,4 +243,5 @@ for (i = 0; i < close.length; i++) {
 }
 </script>
 <!--footer-->
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('ns.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

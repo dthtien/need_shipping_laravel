@@ -28,6 +28,7 @@ Route::resource('admin/bai-dang', 'BaiDangController\BaiDangController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@admin');
+Route::get('index',['as'=>'user.home','uses'=>'HomeController@index']);
 Route::get('trangchu',['as'=>'user.home','uses'=>'HomeController@index']);
 Route::get('dangky',['as'=>'user.dangky','uses'=>'siteUserController@dangky']);
 Route::get('register',['as'=>'user.dangky','uses'=>'siteUserController@dangky']);
