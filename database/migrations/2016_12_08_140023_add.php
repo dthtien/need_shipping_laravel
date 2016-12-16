@@ -22,7 +22,7 @@ class Add extends Migration
             $table->double('kinhdoshop')->nullable();
             $table->double('vidoshop')->nullable();
             $table->double('kinhdonnhan')->nullable();
-            $table->double('vidoshopnnhan')->nullable();
+            $table->double('vidonnhan')->nullable();
         });
     }
 
