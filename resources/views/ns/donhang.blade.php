@@ -146,13 +146,16 @@
 									<?php
 									$kc=App\Helpers::calculated_distance(Auth::user()->kinhdo,Auth::user()->vido,$row["kinhdoshop"],$row["vidoshop"],$earthRadius = 6371);
 									if($kc>1000) $kc=0;
-									echo "<i class='fa fa-map-marker' style='color:#F24738; cursor:pointer;' title='Khoảng cách từ bạn đến địa chỉ nhận hàng'> ".$kc."  km</i>";
 									?>
 								</td>
 							</tr>
 							<tr>
 								<th> Địa chỉ lấy hàng </th>
-								<td> {{ $row["diachishop"] }} </td>
+								<td> {{ $row["diachishop"] }} 
+								@if($kc>0)
+								 (<i class='fa fa-map-marker' style='color:#F24738; cursor:pointer;' title='Khoảng cách từ bạn đến địa chỉ nhận hàng'> {{ $kc }}  km</i>)
+								 @endif
+								 </td>
 							</tr>
 							<tr>
 								<th> Số điện thoại lấy hàng </th>

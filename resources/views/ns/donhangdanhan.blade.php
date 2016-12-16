@@ -55,6 +55,10 @@
 .closebtn:hover {
     color: black;
 }
+.frm
+{
+	display: inline-block;
+}
 </style>
 <!--Nội dung-->
 <div class="main-container">
@@ -193,12 +197,12 @@
 							</tr>
 							<tr>
 								<th>
-								<form method="post" action="{!! route('posthoanthanhdonhang') !!}" onSubmit="return confirm('Bạn đã hoàn thành đơn hàng');">
+								<form method="post" class="frm" action="{!! route('posthoanthanhdonhang') !!}" onSubmit="return confirm('Bạn đã hoàn thành đơn hàng');">
 								<input name="_token" type="hidden" value="{{ csrf_token() }}">
 								<input type="hidden" name="id" value="{{ $id }}">
 								<button style="cursor: pointer; text-decoration: none; color:lightgreen; font-size: 18px; font-weight: bold; border: none; background-color:#fff;"><i class="fa fa-check-square-o"> Hoàn Thành </i></button>
 								</form>
-								<form method="post" action="{!! route('postxoadonhang') !!}" onSubmit="return confirm('Bạn có muốn xóa đơn hàng');">
+								<form method="post" class="frm" action="{!! route('postxoadonhang') !!}" onSubmit="return confirm('Bạn có muốn xóa đơn hàng');">
 								<input name="_token" type="hidden" value="{{ csrf_token() }}">
 								<input type="hidden" name="id" value="{{ $id }}">
 								<button  style="cursor: pointer; text-decoration: none; color:red; font-size: 18px; font-weight: bold; border: none; background-color:#fff;"><i class="fa fa-times"> Xóa </i></button>

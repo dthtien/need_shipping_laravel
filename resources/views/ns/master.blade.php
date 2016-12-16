@@ -77,10 +77,10 @@
       <li><a href="{{ url('don-hang-da-dang') }}"> <i class="fa fa-bookmark-o w3-margin-right"></i> ĐƠN HÀNG ĐÃ ĐĂNG</a></li>
       @endif
       <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-address-card-o w3-margin-left"></i>{{ Auth::user()->name }} <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user w3-margin-right"></i> {{ Auth::user()->name }} <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ url('thongtin') }}">THÔNG TIN</a></li>
-            <li><a href="{{ url('dangxuat') }}">ĐĂNG XUẤT</a></li>
+            <li><a href="{{ url('thongtin') }}"><i class="fa fa-info-circle w3-margin-right"></i> THÔNG TIN</a></li>
+            <li><a href="{{ url('dangxuat') }}"><i class="fa fa-sign-out w3-margin-right"></i> ĐĂNG XUẤT</a></li>
         </ul>
     </li>
     @endif
