@@ -108,7 +108,11 @@
 											{
 												$ship=App\User::where('id','=',$row1["ship_id"])->get()->toArray();
 												?>
-												<p style="cursor: pointer; text-decoration: none; color:#F24738; font-size: 18px;" class="" data-toggle="modal" data-target="#modal{{ $ship[0]['id'] }}">{{ $ship[0]["name"]}}</p>
+												<p style="cursor: pointer; text-decoration: none; color:#F24738; font-size: 18px;" class="" data-toggle="modal" data-target="#modal{{ $ship[0]['id'] }}">{{ $ship[0]["name"]}}
+												</p>
+												@if($row1["is_su"]==1)
+												(<i style="color: green;">Đã giao hàng</i>)
+												@endif
 												<!-- Modal -->
 												<div id="modal{{$ship[0]['id'] }}" class="modal fade" role="dialog">
 													<div class="modal-dialog">

@@ -37,7 +37,7 @@ class siteUserController extends BaseController
 	{
 		 // Lấy địa chỉ chính xác
 		$user= new User;
-		$adr=Helper::get_infor_from_address($request->Address);
+		$adr=Helpers::get_infor_from_address($request->Address);
 		if($adr->status=='OK')
 		{
 		$user->diachi= $adr->results[0]->formatted_address;
