@@ -51,10 +51,10 @@
 
     <div class="s5h-header">
         <div class="container">
-            <a class="s5h-logo" href="{{ url('index') }}" title="">{{ Html::image('ns/images/logo1.png') }}</a>
+            <a class="s5h-logo" href="{{ url('/') }}" title="">{{ Html::image('ns/images/logo1.png') }}</a>
             <span class="s5h-menuicon"><i class="fa fa-bars"></i></span>
             <ul class="s5h-menu">  <!--F24738-->
-                <li><a class="active" href="{{ url('index') }}" title="TRANG CHỦ">TRANG CHỦ</a> </li>
+                <li><a class="active" href="{{ url('/') }}" title="TRANG CHỦ">TRANG CHỦ</a> </li>
                 <li><a href="{{ url('chinhsach') }}">CHÍNH SÁCH</a></li>
                 <li><a href="#contact">LIÊN HỆ</a></li>
                 
@@ -93,7 +93,11 @@
 <div class="s5h-ftshare">
     <div class="container">
         <ul>
-            <li><a href="https://www.facebook.com/dthtien" title=""><i class="fa fa-facebook flipInX wow" data-wow-duration="3s" data-wow-delay="0" style="visibility: hidden; animation-duration: 3s; animation-name: none;"></i></a></li>
+            <li>
+            <a href="https://www.facebook.com/dthtien" title="" target="_blank">
+            <i class="fa fa-facebook" style=" color: #fff; animation-duration: 3s; animation-name: none;"></i>
+            </a>
+            </li>
         </ul>
     </div>
 </div>

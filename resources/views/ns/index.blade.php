@@ -62,7 +62,7 @@
             <li data-target="#myCarousel" data-slide-to="1"></li>
         </ol>
         <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
+        <div class="carousel-inner" role="listbox" style="padding-bottom: 20px">
             <div class="item active">
                 <div class="s5h-why5s-item">
                    <div class="s5h-why5s-icon flipInX wow" data-wow-duration="2s" data-wow-delay="0" style="visibility: visible; animation-duration: 3s; animation-name: flipInX;">
@@ -110,12 +110,5 @@
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
 </a>
-</div>
-<div class="s5h-ftshare">
-    <div class="container">
-        <ul>
-            <li><a href="https://www.facebook.com/dthtien" title=""><i class="fa fa-facebook flipInX wow" data-wow-duration="3s" data-wow-delay="0" style="visibility: hidden; animation-duration: 3s; animation-name: none;"></i></a></li>
-        </ul>
-    </div>
 </div>
 @stop
