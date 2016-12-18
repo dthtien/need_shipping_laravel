@@ -14,12 +14,14 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID.</th> <th>Name</th><th>Email</th>
+                                        <th>ID.</th> <th>Name</th><th>Email</th><th>DiaChi</th>
+                                        <th>Loai</th><th>Level</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>{{ $user->id }}</td> <td> {{ $user->name }} </td><td> {{ $user->email }} </td>
+                                        <td>{{ $user->diachi }}</td><td>{{ $user->loai }}</td><td>{{ $user->level }}</td>
                                     </tr>
                                 </tbody>
                             </table>

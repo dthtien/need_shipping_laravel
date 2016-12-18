@@ -17,14 +17,17 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th> Diachishop </th><th> Sdtshop </th><th> Diachinnhan </th><th>Actions</th>
+                                        <th>ID</th><th> Diachishop </th><th> Sdtshop </th><th> Diachinnhan </th><th> TenNguoiNhan </th>
+                                        <th>TenMatHang</th><th>Actions</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($baidang as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->diachishop }}</td><td>{{ $item->sdtshop }}</td><td>{{ $item->diachinnhan }}</td>
+                                        <td>{{ $item->diachishop }}</td><td>{{ $item->sdtshop }}</td><td>{{ $item->diachinnhan }}</td><td> {{ $item->ghichu }}</td>
+                                        <td>{{ $item->tenmathang }}</td>
                                         <td>
                                             <a href="{{ url('/admin/bai-dang/' . $item->id) }}" class="btn btn-success btn-xs" title="View BaiDang"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
                                             <a href="{{ url('/admin/bai-dang/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit BaiDang"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>

@@ -15,14 +15,17 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th> Diachishop </th><th> Sdtshop </th><th> Diachinnhan </th><th>Actions</th>
+                                        <th>ID</th><th> Diachishop </th><th> Sdtshop </th><th> Diachinnhan </th><th> TenNguoiNhan </th>
+                                        <th>TenMatHang</th><th>Actions</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php $__currentLoopData = $baidang; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
                                     <tr>
                                         <td><?php echo e($item->id); ?></td>
-                                        <td><?php echo e($item->diachishop); ?></td><td><?php echo e($item->sdtshop); ?></td><td><?php echo e($item->diachinnhan); ?></td>
+                                        <td><?php echo e($item->diachishop); ?></td><td><?php echo e($item->sdtshop); ?></td><td><?php echo e($item->diachinnhan); ?></td><td> <?php echo e($item->ghichu); ?></td>
+                                        <td><?php echo e($item->tenmathang); ?></td>
                                         <td>
                                             <a href="<?php echo e(url('/admin/bai-dang/' . $item->id)); ?>" class="btn btn-success btn-xs" title="View BaiDang"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
                                             <a href="<?php echo e(url('/admin/bai-dang/' . $item->id . '/edit')); ?>" class="btn btn-primary btn-xs" title="Edit BaiDang"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>

@@ -18,14 +18,14 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Name</th><th>Email</th><th>Actions</th>
+                                        <th>ID</th><th>Name</th><th>Email</th><th>DiaChi</th><th>Loai</th><th>Level</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($users as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td><a href="{{ url('/admin/users', $item->id) }}">{{ $item->name }}</a></td><td>{{ $item->email }}</td>
+                                        <td><a href="{{ url('/admin/users', $item->id) }}">{{ $item->name }}</a></td><td>{{ $item->email }}</td><td>{{ $item->diachi }}</td><td>{{ $item->loai }}</td><td>{{ $item->level }}</td>
                                         <td>
                                             <a href="{{ url('/admin/users/' . $item->id . '/edit') }}">
                                                 <button type="submit" class="btn btn-primary btn-xs">Update</button>

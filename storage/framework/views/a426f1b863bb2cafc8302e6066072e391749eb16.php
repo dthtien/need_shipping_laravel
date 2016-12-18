@@ -12,12 +12,14 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID.</th> <th>Name</th><th>Email</th>
+                                        <th>ID.</th> <th>Name</th><th>Email</th><th>DiaChi</th>
+                                        <th>Loai</th><th>Level</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td><?php echo e($user->id); ?></td> <td> <?php echo e($user->name); ?> </td><td> <?php echo e($user->email); ?> </td>
+                                        <td><?php echo e($user->diachi); ?></td><td><?php echo e($user->loai); ?></td><td><?php echo e($user->level); ?></td>
                                     </tr>
                                 </tbody>
                             </table>

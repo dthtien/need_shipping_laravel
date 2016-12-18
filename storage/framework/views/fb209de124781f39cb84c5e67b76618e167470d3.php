@@ -31,7 +31,7 @@
                    </a>
                  </li>
                </ul>
-               </div>
+               </div> 
                <?php else: ?>
                <div class="s5h-bninfo"></div>
                <div class="s5h-bntitle"> <p>Bạn có thể đăng đơn hàng</p></div>
@@ -94,9 +94,10 @@
           <div class="s5h-why5s-icon flipInX wow" data-wow-duration="1s" data-wow-delay="0" style="visibility: visible; animation-duration: 3s; animation-name: flipInX;">
             <span><i class="fa fa-credit-card-alt"></i></span>
           </div> 
-          <h4>CHI PHÍ</h4>
+          <h4>Quản lý đơn hàng</h4>
           <div class="s5h-why5s-info">
-            Thanh toán ngay sau khi trao hàng.
+            Thông kê danh sách đơn hàng đã nhận
+            Và danh sách đơn hàng đã đăng.
           </div>
           <div class="s5h-why5s-icon flipInX wow" data-wow-duration="1s" data-wow-delay="0" style="visibility: visible; animation-duration: 3s; animation-name: flipInX;">
             <span><i class="fa fa-american-sign-language-interpreting"></i></span>

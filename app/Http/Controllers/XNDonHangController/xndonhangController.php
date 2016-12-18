@@ -22,7 +22,7 @@ class xndonhangController extends Controller
             if(Auth::user()->level==1)
             {
                 $xndonhang = xndonhang::paginate(25);
-                return view('xndonhang.index', compact('xndonhang'));
+                return view('admin.xndonhang.index', compact('xndonhang'));
             } else
             {
                 return redirect('home');
@@ -44,7 +44,7 @@ class xndonhangController extends Controller
         if(Auth::check()){ 
             if(Auth::user()->level==1)
             {
-                return view('xndonhang.create');
+                return view('admin.xndonhang.create');
             } else
             {
                 return redirect('home');
@@ -100,7 +100,7 @@ class xndonhangController extends Controller
         {
             $xndonhang = xndonhang::findOrFail($id);
 
-            return view('xndonhang.show', compact('xndonhang'));
+            return view('admin.xndonhang.show', compact('xndonhang'));
         } else
         {
             return redirect('home');
@@ -127,7 +127,7 @@ class xndonhangController extends Controller
 
                 $xndonhang = xndonhang::findOrFail($id);
 
-                return view('xndonhang.edit', compact('xndonhang'));
+                return view('admin.xndonhang.edit', compact('xndonhang'));
             } else
             {
                 return redirect('home');

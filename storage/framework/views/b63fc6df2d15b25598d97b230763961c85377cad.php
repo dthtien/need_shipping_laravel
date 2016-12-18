@@ -24,10 +24,10 @@ ob_start();
                 <?php endif; ?>
                 <div class="form-group has-feedback">
                     <h4 class="s5h-uform-title">Thông tin shop</h4>
-                    <input type="text" class="form-control" name="ShopAddress" id="add_autocomplete" autocomplete="off" placeholder="Số nhà,Đường,Quận,TP(tỉnh)" required>
+                    <input type="text" class="form-control" name="ShopAddress" id="add_autocomplete" autocomplete="off" value="<?php echo e(Auth::user()->diachi); ?>" placeholder="Số nhà,Đường,Quận,TP(tỉnh)" required>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="text" name="ShopPhone" id="Phone" class="form-control" placeholder="Số điện thoại" required>
+                    <input type="text" name="ShopPhone" id="Phone" class="form-control" placeholder="Số điện thoại" value="<?php echo e(Auth::user()->sdt); ?>" required>
                 </div>
                 <div>
                     <h5 class="s5h-uform-title">Thông tin người nhận</h5>

@@ -20,7 +20,7 @@
 
                         {!! Form::open(['url' => '/admin/xndonhang', 'class' => 'form-horizontal', 'files' => true]) !!}
 
-                        @include ('xndonhang.form')
+                        @include ('admin.xndonhang.form')
 
                         {!! Form::close() !!}
 

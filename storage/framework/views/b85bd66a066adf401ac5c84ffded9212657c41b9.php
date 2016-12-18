@@ -16,14 +16,14 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Name</th><th>Email</th><th>Actions</th>
+                                        <th>ID</th><th>Name</th><th>Email</th><th>DiaChi</th><th>Loai</th><th>Level</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
                                     <tr>
                                         <td><?php echo e($item->id); ?></td>
-                                        <td><a href="<?php echo e(url('/admin/users', $item->id)); ?>"><?php echo e($item->name); ?></a></td><td><?php echo e($item->email); ?></td>
+                                        <td><a href="<?php echo e(url('/admin/users', $item->id)); ?>"><?php echo e($item->name); ?></a></td><td><?php echo e($item->email); ?></td><td><?php echo e($item->diachi); ?></td><td><?php echo e($item->loai); ?></td><td><?php echo e($item->level); ?></td>
                                         <td>
                                             <a href="<?php echo e(url('/admin/users/' . $item->id . '/edit')); ?>">
                                                 <button type="submit" class="btn btn-primary btn-xs">Update</button>
