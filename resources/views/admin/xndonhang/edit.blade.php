@@ -25,7 +25,7 @@
                             'files' => true
                         ]) !!}
 
-                        @include ('xndonhang.form', ['submitButtonText' => 'Update'])
+                        @include ('admin.xndonhang.form', ['submitButtonText' => 'Update'])
 
                         {!! Form::close() !!}
 
