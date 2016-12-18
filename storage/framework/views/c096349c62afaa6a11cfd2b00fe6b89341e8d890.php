@@ -99,7 +99,7 @@
         <ul>
             <li>
             <a href="https://www.facebook.com/dthtien" title="" target="_blank">
-            <i class="fa fa-facebook" style=" color: #fff; animation-duration: 3s; animation-name: none;"></i>
+            <i class="fa fa-facebook" style=" color: #fff; animation-duration: 3s; animation-name: none; padding: 20px;"></i>
             </a>
             </li>
         </ul>

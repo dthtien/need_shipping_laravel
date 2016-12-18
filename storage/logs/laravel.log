@@ -14283,3 +14283,21 @@ Stack trace:
 [2016-12-16 13:54:33] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'App\Helper' not found' in D:\workspace\test\testapp1\storage\framework\views\2d5c4d2f98efb4f750b5a8740a519916a25be68e.php:80
 Stack trace:
 #0 {main}  
+[2016-12-18 10:39:56] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '->' (T_OBJECT_OPERATOR)' in D:\workspace\test\testapp1\storage\framework\views\fb209de124781f39cb84c5e67b76618e167470d3.php:24
+Stack trace:
+#0 {main}  
+[2016-12-18 10:40:18] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ':', expecting '('' in D:\workspace\test\testapp1\storage\framework\views\fb209de124781f39cb84c5e67b76618e167470d3.php:34
+Stack trace:
+#0 {main}  
+[2016-12-18 11:13:05] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ')'' in D:\workspace\test\testapp1\database\seeds\DatabaseSeeder.php:26
+Stack trace:
+#0 {main}  
+[2016-12-18 11:13:24] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ')'' in D:\workspace\test\testapp1\database\seeds\DatabaseSeeder.php:26
+Stack trace:
+#0 {main}  
+[2016-12-18 11:21:31] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Model' not found' in D:\workspace\test\testapp1\database\seeds\DatabaseSeeder.php:14
+Stack trace:
+#0 {main}  
+[2016-12-18 11:23:34] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'App\Http\Controllers\XNDonHangController\Auth' not found' in D:\workspace\test\testapp1\app\Http\Controllers\XNDonHangController\xndonhangController.php:21
+Stack trace:
+#0 {main}  

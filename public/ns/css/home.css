@@ -182,6 +182,7 @@ a, a:hover, a:focus, a:active {
 
 .s5h-bndown-ul {
     list-style: none;
+    text-align: center;
 }
 
     .s5h-bndown-ul li {
@@ -237,6 +238,7 @@ a, a:hover, a:focus, a:active {
         }
 
         .s5h-bndown-ul li.s5h-bndown-ship a {
+            margin-top: 9px;
             text-align: center;
             color: #fff; 
             font-size: 18px;

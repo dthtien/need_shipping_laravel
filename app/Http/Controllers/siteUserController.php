@@ -26,9 +26,15 @@ class siteUserController extends BaseController
 	{
 		return view('ns.index');
 	}
+
+	///
 	public function dangky()
 	{
-		return view('ns.dangky');
+		if(Auth::check())
+		{
+			return redirect()->route('user.home');
+		}
+		else return view('ns.dangky');
 	}
 
 

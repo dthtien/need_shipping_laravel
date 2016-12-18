@@ -4,7 +4,7 @@ namespace App\Http\Controllers\XNDonHangController;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Auth;
 use App\xndonhang;
 use Illuminate\Http\Request;
 use Session;
