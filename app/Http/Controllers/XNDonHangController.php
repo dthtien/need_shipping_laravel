@@ -71,7 +71,7 @@ class XNDonHangController extends Controller
 	{
 		if(Auth::check()){ 
 			if(Auth::user()->loai!='Shipper'){ 
-				$data=User::findOrFail(Auth::user()->id)->baidang()->orderBy('updated_at', 'desc')->paginate(2);;
+				$data=User::findOrFail(Auth::user()->id)->baidang()->orderBy('updated_at', 'desc')->paginate(3);;
 				return view('ns.donhangdadang',compact('data'));
 			}
 			else 
