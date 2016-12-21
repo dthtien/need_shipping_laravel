@@ -5,10 +5,11 @@
 
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading"> <?php echo e(Auth::user()->name); ?></div>
 
                 <div class="panel-body">
-                    Your application's dashboard.
+                    <?php echo e(Html::image('ns/images/logo1.png')); ?>
+
                 </div>
             </div>
         </div>

@@ -4,6 +4,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Helpers extends Model
 {
+
+  // tính khoảng cách hai điểm trên bản đồ dựa theo công thức haversine
 	public static function calculated_distance($longitudeFrom,$latitudeFrom, $longitudeTo,$latitudeTo,  $earthRadius = 6371)
     {
       $latFrom = deg2rad($latitudeFrom);
@@ -16,7 +18,7 @@ class Helpers extends Model
       return ceil($angle * $earthRadius);
     }
 
-    //Loại bỏ dấu
+    //Loại bỏ dấu  -Loại bỏ dấu tiếng Việt để cho kết quả chính xác hơn
 	 public static function stripUnicode($str){
 	   if (!$str) return false;
 	      $unicode = array(
@@ -39,5 +41,5 @@ class Helpers extends Model
       return $output;
     }
 
-      // Loại bỏ dấu tiếng Việt để cho kết quả chính xác hơn
+     
 }

@@ -35,7 +35,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
+                    <a class="navbar-brand" href="<?php echo e(url('/admin')); ?>">
                         NeedShipper
                     </a>
                 </div>

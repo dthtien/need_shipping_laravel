@@ -10,7 +10,7 @@ use Auth;
 
 class XNDonHangController extends Controller
 {
-	// xndonhang
+	// xử lý nhận đơn hàng
 	public function xacnhandh(Request $request)
 	{
   	//Kiểm tra người dùng
@@ -71,7 +71,7 @@ class XNDonHangController extends Controller
 	{
 		if(Auth::check()){ 
 			if(Auth::user()->loai!='Shipper'){ 
-				$data=User::findOrFail(Auth::user()->id)->baidang()->orderBy('updated_at', 'desc')->paginate(3);;
+				$data=User::findOrFail(Auth::user()->id)->baidang()->orderBy('updated_at', 'desc')->paginate(2);;
 				return view('ns.donhangdadang',compact('data'));
 			}
 			else 
@@ -85,6 +85,7 @@ class XNDonHangController extends Controller
 		}
 	}
 
+	//Cập nhật đơn hàng đã hoàn thành
 	public function hoanthanhdonhang(Request $request)
 	{
 		if(Auth::check()){  
@@ -105,6 +106,8 @@ class XNDonHangController extends Controller
 		}
 
 	}
+
+	//Xóa đơn hàng khỏi danh sách đã nhận
 	public function xoadonhang(Request $request)
 	{
 		if(Auth::check()){  
